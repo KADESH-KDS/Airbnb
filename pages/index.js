@@ -35,14 +35,15 @@ export default function Home({exploreData,cardsData}) {
         </section>
         <section>
           <h2 className="text-4xl font-semibold py-8"> Live Anywhere</h2>
-          <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3"></div>
-          {cardsData?.map(({img,title})=>{
+          <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
+          {cardsData?.map(({img,title})=>(
             <MediumCard
              key={img}
              img={img}
              title={title}
             />
-          })}
+          ))}
+          </div>
         </section>
        <LargeCard
          img="https://links.papareact.com/4cj"
@@ -60,8 +61,7 @@ export default function Home({exploreData,cardsData}) {
 export async function getStaticProps(){
   const exploreData= await fetch('https://links.papareact.com/pyp').then( (res) => res.json()
   );
-  const cardsData=await fetch('https://links.papareact.com/zp1').
-  then( (res) =>res.json()
+  const cardsData=await fetch('https://links.papareact.com/zp1').then( (res) =>res.json()
   );
 return{
 props:{
